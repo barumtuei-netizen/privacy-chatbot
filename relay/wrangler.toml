@@ -1,0 +1,26 @@
+# Cloudflare Workers deployment of the stateless relay.
+#
+# Secrets are NOT in this file. Set them once with `wrangler secret put NAME`:
+#   ANTHROPIC_API_KEY   (required)
+#   RELAY_ACCESS_KEY    (required when deployed — without it anyone who finds
+#                        the URL can spend your API quota)
+#   OPENAI_API_KEY      (optional — enables the second brain)
+#   GOOGLE_API_KEY      (optional — enables the read-aloud button)
+# For local `npm run dev`, wrangler reads them from relay/.env (git-ignored).
+
+name = "privacy-chatbot-relay"
+main = "src/worker.ts"
+compatibility_date = "2026-09-01"
+
+# Never keep request logs: this service handles private conversations.
+[observability]
+enabled = false
+
+[vars]
+# Browser origins allowed to call the relay (comma-separated). When you deploy
+# the web app, add its URL here, e.g. "https://your-app.pages.dev,http://localhost:5173".
+RELAY_ALLOWED_ORIGIN = "http://localhost:5173"
+ANTHROPIC_MODEL = "claude-sonnet-5"
+OPENAI_MODEL = "gpt-5.6-sol"
+GOOGLE_TTS_LANGUAGE = "th-TH"
+GOOGLE_TTS_VOICE = "th-TH-Chirp3-HD-Zephyr"

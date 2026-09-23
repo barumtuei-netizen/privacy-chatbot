@@ -1,0 +1,20 @@
+{
+  "name": "relay",
+  "version": "1.0.0",
+  "description": "Stateless relay (Cloudflare Worker) that forwards chat requests to Claude/OpenAI without logging content",
+  "main": "src/worker.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --port 8787",
+    "typecheck": "tsc",
+    "deploy": "wrangler deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260921.1",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.136.0"
+  }
+}
