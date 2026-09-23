@@ -38,7 +38,7 @@ export default function PersonaPanel({ initialText, onSave, onClose }: Props) {
           gap: 12,
         }}
       >
-        <div style={{ fontSize: 16, fontWeight: 600, color: "#27272a" }}>ปมในใจ / บริบทส่วนตัว</div>
+        <div style={{ fontSize: 16, fontWeight: 600, color: "#27272a" }}>เกี่ยวกับฉัน</div>
         <div style={{ fontSize: 13, color: "#6b6b74", lineHeight: 1.6 }}>
           ข้อความนี้จะถูกเข้ารหัสเก็บบนเครื่องเหมือนบทสนทนา และถูกแนบไปกับทุกข้อความที่ส่งให้ Claude
           เป็นบริบทส่วนตัว (ไม่ใช่เปลี่ยนบุคลิก Claude เอง) — ปล่อยว่างได้ถ้าไม่ต้องการใช้
@@ -47,7 +47,7 @@ export default function PersonaPanel({ initialText, onSave, onClose }: Props) {
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={10}
-          placeholder="เล่าเรื่องราว ปมในใจ สิ่งที่อยากให้ AI เข้าใจเกี่ยวกับคุณ..."
+          placeholder="เล่าเรื่องราว พื้นเพ สิ่งที่อยากให้ AI เข้าใจเกี่ยวกับคุณ..."
           style={{
             resize: "vertical",
             borderRadius: 14,

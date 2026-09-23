@@ -114,7 +114,7 @@ export default function App() {
   }, []);
 
   const handleFactoryReset = useCallback(async () => {
-    const confirmed = window.confirm("ลบข้อมูลทั้งหมดถาวร (บทสนทนา, ปมในใจ, รหัสผ่าน) กู้คืนไม่ได้ ยืนยันไหม?");
+    const confirmed = window.confirm("ลบข้อมูลทั้งหมดถาวร (บทสนทนา, เกี่ยวกับฉัน, รหัสผ่าน) กู้คืนไม่ได้ ยืนยันไหม?");
     if (!confirmed) return;
     await wipeAll();
     window.location.reload();
@@ -330,7 +330,7 @@ export default function App() {
         </div>
         <div style={{ display: "flex", gap: 8 }}>
           <button onClick={() => setPersonaOpen(true)} style={headerBtnStyle()}>
-            ปมในใจ
+            เกี่ยวกับฉัน
           </button>
           <button onClick={handleFactoryReset} style={dangerBtnStyle}>
             รีเซ็ตเป็นค่าโรงงาน
