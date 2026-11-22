@@ -105,27 +105,6 @@ export default function PassphraseGate({ onUnlock, notice }: Props) {
 
   return (
     <div style={wrapStyle}>
-      <div
-        className="aurora-wrap"
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: "50%",
-          height: "min(100%, 480px)",
-          transform: "translateY(-50%)",
-          opacity: 0.7,
-        }}
-      >
-        <div className="goo-wrap">
-          <div className="blob blob-1" />
-          <div className="blob blob-2" />
-          <div className="blob blob-3" />
-          <div className="blob blob-4" />
-          <div className="blob blob-5" />
-        </div>
-      </div>
-
       <form onSubmit={handleSubmit} className="liquid-glass liquid-glass-strong liquid-edge liquid-edge-top" style={styles.card}>
         <div style={styles.title}>
           {mode === "create" ? "ตั้งรหัสผ่านสำหรับเข้ารหัสข้อมูล" : "ใส่รหัสผ่านเพื่อเข้าถึงบทสนทนา"}
@@ -154,14 +133,17 @@ export default function PassphraseGate({ onUnlock, notice }: Props) {
             </li>
           </ul>
         </details>
-        <input
-          type="password"
-          autoFocus
-          value={passphrase}
-          onChange={(e) => setPassphrase(e.target.value)}
-          placeholder="รหัสผ่าน"
-          style={styles.input}
-        />
+        <div style={styles.field}>
+          <div className="glow glow-field" aria-hidden="true" />
+          <input
+            type="password"
+            autoFocus
+            value={passphrase}
+            onChange={(e) => setPassphrase(e.target.value)}
+            placeholder="รหัสผ่าน"
+            style={styles.input}
+          />
+        </div>
         {mode === "create" && (
           <input
             type="password"
@@ -204,10 +186,6 @@ export default function PassphraseGate({ onUnlock, notice }: Props) {
 }
 
 const wrapStyle = {
-  "--b1": "#E4D9FB",
-  "--b2": "#D8E8FB",
-  "--b3": "#FBD9EA",
-  "--b4": "#D9FBEA",
   width: "100%",
   height: "100%",
   position: "relative",
@@ -233,11 +211,12 @@ const styles: Record<string, React.CSSProperties> = {
   },
   title: { fontSize: 20, fontWeight: 600, color: "#27272a", textAlign: "center" },
   subtitle: { fontSize: 13, color: "#6b6b74", lineHeight: 1.6, textAlign: "center" },
+  field: { position: "relative", display: "flex", flexDirection: "column", gap: 12 },
   input: {
     position: "relative",
     zIndex: 1,
-    border: "1px solid rgba(255,255,255,0.7)",
-    background: "rgba(255,255,255,0.55)",
+    border: "1px solid rgba(0, 40, 120, 0.08)",
+    background: "#ffffff",
     borderRadius: 14,
     padding: "12px 14px",
     fontSize: 15,
