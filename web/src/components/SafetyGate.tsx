@@ -7,26 +7,7 @@ export default function SafetyGate({ onAccept }: Props) {
 
   return (
     <div style={wrapStyle}>
-      <div
-        className="aurora-wrap"
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: "50%",
-          height: "min(100%, 480px)",
-          transform: "translateY(-50%)",
-          opacity: 0.7,
-        }}
-      >
-        <div className="goo-wrap">
-          <div className="blob blob-1" />
-          <div className="blob blob-2" />
-          <div className="blob blob-3" />
-          <div className="blob blob-4" />
-          <div className="blob blob-5" />
-        </div>
-      </div>
+      <div className="glow glow-corner" aria-hidden="true" />
 
       <div className="liquid-glass liquid-glass-strong liquid-edge liquid-edge-top" style={styles.card}>
         <div style={styles.title}>ก่อนเริ่มใช้งาน</div>
@@ -72,10 +53,6 @@ export default function SafetyGate({ onAccept }: Props) {
 }
 
 const wrapStyle = {
-  "--b1": "#E4D9FB",
-  "--b2": "#D8E8FB",
-  "--b3": "#FBD9EA",
-  "--b4": "#D9FBEA",
   width: "100%",
   height: "100%",
   position: "relative",

@@ -44,6 +44,7 @@ export default function ChatView({ messages, isTyping, ttsInfo, modelNames }: Pr
     return (
       <div
         style={{
+          position: "relative",
           flex: 1,
           display: "flex",
           flexDirection: "column",
@@ -52,12 +53,14 @@ export default function ChatView({ messages, isTyping, ttsInfo, modelNames }: Pr
           textAlign: "center",
           padding: "0 24px",
           gap: 10,
+          overflow: "hidden",
         }}
       >
-        <div style={{ fontSize: 27, fontWeight: 600, color: "#27272a", letterSpacing: "-0.01em" }}>
+        <div className="glow glow-rail" aria-hidden="true" />
+        <div style={{ position: "relative", zIndex: 1, fontSize: 27, fontWeight: 600, color: "#27272a", letterSpacing: "-0.01em" }}>
           สวัสดี มีอะไรอยากเล่าไหม
         </div>
-        <div style={{ fontSize: 15, color: "#6b6b74", maxWidth: 420, lineHeight: 1.65 }}>
+        <div style={{ position: "relative", zIndex: 1, fontSize: 15, color: "#6b6b74", maxWidth: 420, lineHeight: 1.65 }}>
           พิมพ์ได้เลย บทสนทนานี้เก็บเข้ารหัสไว้ในเครื่องของคุณเท่านั้น
         </div>
       </div>
@@ -66,10 +69,13 @@ export default function ChatView({ messages, isTyping, ttsInfo, modelNames }: Pr
 
   return (
     <div style={{ position: "relative", flex: "1 1 auto", minHeight: 0, display: "flex", overflow: "hidden" }}>
+      <div className="glow glow-cap" aria-hidden="true" />
       <div
         ref={listRef}
         className="scrollarea"
         style={{
+          position: "relative",
+          zIndex: 1,
           flex: "1 1 auto",
           minHeight: 0,
           overflowY: "auto",

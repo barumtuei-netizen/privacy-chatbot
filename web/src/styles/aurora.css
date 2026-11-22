@@ -258,6 +258,84 @@
   .msg-bubble, .send-btn, .liquid-glass::before, .typedot, .liquid-edge::after { animation: none !important; transition: none !important; }
 }
 
+/* ---------- local color spots (App Store blue, never full-bleed) ----------
+   Deep blue from the App Store icon: #1A8CFF → #0054E6 → #0036B1.
+   Each screen places a different spot. The page itself stays white. */
+
+.glow {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Sign-in: one ellipse sitting directly behind the white password field. */
+.glow-field {
+  left: -8%;
+  right: -8%;
+  top: 50%;
+  height: 92px;
+  transform: translateY(-50%);
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    #2b97ff 0%,
+    #0054e6 44%,
+    rgba(0, 42, 160, 0) 72%
+  );
+  filter: blur(16px);
+}
+
+/* Safety notice: a single disk in the top-right corner of the page. */
+.glow-corner {
+  top: -70px;
+  right: -50px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle at 55% 45%, #0048d4 0%, #002f8c 42%, rgba(0, 22, 80, 0) 70%);
+  filter: blur(2px);
+}
+
+/* Chat composer: a short bar behind the pill only, not the whole band. */
+.glow-composer {
+  left: 50%;
+  top: 50%;
+  width: 108%;
+  height: 78px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center, #2b97ff 0%, #0054e6 42%, rgba(0, 40, 160, 0) 70%);
+  filter: blur(14px);
+}
+
+/* Empty chat: a tall streak on the left edge, not behind the greeting. */
+.glow-rail {
+  left: -70px;
+  top: 8%;
+  width: 160px;
+  height: 220px;
+  background: radial-gradient(circle at 30% 40%, #0047d0 0%, rgba(0, 32, 120, 0) 68%);
+  filter: blur(2px);
+}
+
+/* Thread: a small cap at the top center so the reading area stays white. */
+.glow-cap {
+  top: -24px;
+  left: 50%;
+  width: 180px;
+  height: 64px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at top, rgba(10, 84, 220, 0.55) 0%, rgba(0, 40, 150, 0) 72%);
+  filter: blur(4px);
+}
+
+/* About-me sheet: a tight spot at the lower-left of the white textarea. */
+.glow-note {
+  left: -8px;
+  bottom: -10px;
+  width: 110px;
+  height: 72px;
+  background: radial-gradient(circle at 30% 70%, #003ec0 0%, rgba(0, 30, 120, 0) 70%);
+  filter: blur(10px);
+}
+
 /* ---------- markdown rendering inside message bubbles ---------- */
 
 .md-p { margin: 0; }

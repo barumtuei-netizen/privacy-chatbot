@@ -32,7 +32,7 @@ export default function PersonaPanel({ initialText, onSave, onClose }: Props) {
           maxWidth: 560,
           borderRadius: 24,
           padding: 26,
-          background: "rgba(255,255,255,0.7)",
+          background: "rgba(255,255,255,0.96)",
           display: "flex",
           flexDirection: "column",
           gap: 12,
@@ -43,23 +43,30 @@ export default function PersonaPanel({ initialText, onSave, onClose }: Props) {
           ข้อความนี้จะถูกเข้ารหัสเก็บบนเครื่องเหมือนบทสนทนา และถูกแนบไปกับทุกข้อความที่ส่งให้ Claude
           เป็นบริบทส่วนตัว (ไม่ใช่เปลี่ยนบุคลิก Claude เอง) — ปล่อยว่างได้ถ้าไม่ต้องการใช้
         </div>
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          rows={10}
-          placeholder="เล่าเรื่องราว พื้นเพ สิ่งที่อยากให้ AI เข้าใจเกี่ยวกับคุณ..."
-          style={{
-            resize: "vertical",
-            borderRadius: 14,
-            border: "1px solid rgba(0,0,0,0.08)",
-            padding: 14,
-            fontFamily: "inherit",
-            fontSize: 14,
-            lineHeight: 1.6,
-            background: "rgba(255,255,255,0.6)",
-            outline: "none",
-          }}
-        />
+        <div style={{ position: "relative" }}>
+          <div className="glow glow-note" aria-hidden="true" />
+          <textarea
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            rows={10}
+            placeholder="เล่าเรื่องราว พื้นเพ สิ่งที่อยากให้ AI เข้าใจเกี่ยวกับคุณ..."
+            style={{
+              position: "relative",
+              zIndex: 1,
+              width: "100%",
+              boxSizing: "border-box",
+              resize: "vertical",
+              borderRadius: 14,
+              border: "1px solid rgba(0,0,0,0.08)",
+              padding: 14,
+              fontFamily: "inherit",
+              fontSize: 14,
+              lineHeight: 1.6,
+              background: "#ffffff",
+              outline: "none",
+            }}
+          />
+        </div>
         <div style={{ display: "flex", justifyContent: "flex-end", gap: 10 }}>
           <button
             onClick={onClose}
